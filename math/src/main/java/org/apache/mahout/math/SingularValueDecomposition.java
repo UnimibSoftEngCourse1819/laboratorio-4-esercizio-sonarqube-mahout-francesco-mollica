@@ -286,10 +286,8 @@ public class SingularValueDecomposition implements java.io.Serializable {
       //              s(k), ..., s(p) are not negligible (qr step).
       // kase = 4     if e(p-1) is negligible (convergence).
       
-      for (k = p - 2; k >= -1; k--) {
-        if (k == -1) {
-          break;
-        }
+      for (k = p - 2; k > -1; k--) {
+        
         if (Math.abs(e[k]) <= tiny +eps * (Math.abs(s[k]) + Math.abs(s[k + 1]))) {
           e[k] = 0.0;
           break;
@@ -300,10 +298,8 @@ public class SingularValueDecomposition implements java.io.Serializable {
         kase = 4;
       } else {
         int ks;
-        for (ks = p - 1; ks >= k; ks--) {
-          if (ks == k) {
-            break;
-          }
+        for (ks = p - 1; ks > k; ks--) {
+          
           double t =
             (ks != p ?  Math.abs(e[ks]) : 0.) +
             (ks != k + 1 ?  Math.abs(e[ks-1]) : 0.);
