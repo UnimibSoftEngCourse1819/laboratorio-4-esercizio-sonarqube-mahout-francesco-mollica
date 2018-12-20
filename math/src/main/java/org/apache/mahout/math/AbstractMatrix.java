@@ -193,9 +193,9 @@ public abstract class AbstractMatrix implements Matrix {
 
   @Override
   public Matrix assign(double value) {
-    int rows = rowSize();
+    int rowsref = rowSize();
     int columns = columnSize();
-    for (int row = 0; row < rows; row++) {
+    for (int row = 0; row < rowsref; row++) {
       for (int col = 0; col < columns; col++) {
         setQuick(row, col, value);
       }
