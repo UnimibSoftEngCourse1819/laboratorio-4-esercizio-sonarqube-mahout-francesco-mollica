@@ -355,7 +355,7 @@ public final class BinarySearch {
     if (double1 > double2) {
       return false;
     }
-    if (double1 == double2 && double1 != 0.0) {
+    if (double1 != 0.0) {
       return false;
     }
 
