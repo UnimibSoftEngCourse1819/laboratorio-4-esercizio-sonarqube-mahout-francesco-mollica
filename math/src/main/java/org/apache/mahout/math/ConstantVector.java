@@ -18,6 +18,7 @@
 package org.apache.mahout.math;
 
 import java.util.Iterator;
+import java.util.Objects;
 
 import com.google.common.collect.AbstractIterator;
 
@@ -32,7 +33,23 @@ public class ConstantVector extends AbstractVector {
     this.value = value;
   }
 
-  /**
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj) {
+		return true;
+	}
+	if (!super.equals(obj)) {
+		return false;
+	}
+	if (!(obj instanceof ConstantVector)) {
+		return false;
+	}
+	ConstantVector other = (ConstantVector) obj;
+	return Double.doubleToLongBits(value) == Double.doubleToLongBits(other.value);
+}
+
+/**
    * Subclasses must override to return an appropriately sparse or dense result
    *
    * @param rows    the row cardinality
